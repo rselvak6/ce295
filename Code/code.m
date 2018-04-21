@@ -12,53 +12,38 @@ B = 30330;  %[-]
 E_a = -31500;   %[J/mol]
 R = 8.314;  %[J/mol*K]
 z = 0.552;  %[-]
+R_b = 13E-3;   %[ohms]
+
+% Temperature dynamics   
 rho = 1824; %[kg/m^3]
 Cp = 825;   %[J/kg*K]
-
+h = 5;  %[W/m^2*K]
+V_b = 3.42E-5;  %[m^3]
+L_b = 65.15E-3; %[m]
+A_b = V_b/L_b;  %[m^2]
 
 % Time step
 dt = 1; %[h]
 
-% Nondimensionalized parameters
-Q_max = 1; %    normalized to Q_max
-
 % Tuning parameters;
-alpha = 0.5;
+a_c = 0.5;  %alpha/cost ratio
+V_oc = 330; %[volts]
+Q_max = 1*3600;  %normalized to Q_max, [coulombs]
 
-% Fuel consumption in grams per unit energy
-alph = 1e-4;     % [g/(s-W)]
-
-Qcap = 5*3600;        % [A-s = Coulombs]
-V_oc = 330;             % [volts]
-
-% Limits on Batt Power, Eng Power, SOC
+% Limits
 P_batt_max = 15e3; % [W]
-P_eng_max = 35e3;  % [W]
+P_dem_max = 30; %[kW]
 
 SOC_min = 0.25;      % [-]
 SOC_max = 0.9;      % [-]
 
-% Plot Power Demand Data
-M = csvread('UDDS_Pdem.csv',1,0);
-t = M(:,1);
-P_dem = M(:,2)*1e3;  % convert from kW to W
-v_dc = M(:,3);
+% Data
+num_states = 3; %[3 nodes]
+N = 24; %[hr]
 
-figure(1); clf;
+t = linspace(0,1,N);    %[hr]
+P_dem = P_dem_max*rand(N,num_states);   %uniform random distribution
 
-subplot(2,1,1);
-% plot speed
-plot(t, v_dc);
-title('UDDS speed vs. time');
-xlabel('Time [s]');
-ylabel('Cycle speed [m/s]');
-
-subplot(2,1,2)
-% plot power demand
-plot(t, P_dem/1e3);
-title('Power demand vs. time');
-xlabel('Time [s]');
-ylabel('Power demand [kW]');
 
 % Plot Engine efficiency Curve
 P_eng = linspace(0,P_eng_max,length(P_dem));
