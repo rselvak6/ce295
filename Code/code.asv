@@ -34,10 +34,8 @@ Q_max = 1*3600;  %[coulombs]
 % Limits
 P_dem_max = 30; %[kW]
 
-Wh_min = 1.5*V_oc;  %[J]
-Wh_max = 2.5*V_oc;
-T_min = 26+273; %[K]
-T_max = 36+273; 
+Wh_m = 1.5*V_oc;  %[J]
+Wh_min = 2.5*V_oc;
 
 % Data
 num_states = 3; %[3 nodes]
