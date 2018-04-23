@@ -75,6 +75,7 @@ for k = N:-1:1
     % Iterate over all states
     for idx=1:ns
             % Find dominant bounds
+            % Hi yaser and bryant
             lb = max([-P_dem(k), -P_batt_max, (E_min-E_grid(idx))/dt]);
             ub = min([(E_max-E_grid(idx))/dt, P_batt_max, G-P_dem(k)]);
         
