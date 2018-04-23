@@ -40,11 +40,11 @@ T_min = 26+273; %[K]
 T_max = 36+273; 
 
 % Data
-num_states = 3; %[3 nodes]
+num_nodes = 3; %[3 nodes]
 N = 24; %[hr]
 
 t = linspace(0,1,N);    %[hr]
-P_dem = P_dem_max*rand(N,num_states);   %uniform random distribution, time x states
+P_dem = P_dem_max*rand(N,num_nodes);   %uniform random distribution, time x states
 
 
 % Plot Engine efficiency Curve
@@ -56,10 +56,10 @@ xlabel('Engine power [W]');
 ylabel('$$\eta$$','Interpreter','latex');
 
 %% Grid State and Preallocate
-SOC_grid = (SOC_min:0.005:SOC_max)';
+Wh_grid = (Wh_min:0.005:Wh_max)';
 
 % Grid size
-ns = length(SOC_grid);  % No. of states
+ns = length(Wh_grid);  % No. of states
 
 % Planning horizon (time steps)
 N = length(t);
@@ -78,30 +78,60 @@ V(:,N+1) = 0;
 
 % Iterate backward in time
 for k = N:-1:1
+    % Iterate over all states
+    for idx=1:ns
+        % Iterate over all nodes
+        for i=1:num_nodes
+            % Find dominant bounds
+            lb = max([-P_dem(k,i), -P_batt_max, ...
+                (Wh_grid(idx)-Wh_max)/dt]);
+            ub = min([(-Wh_grid(idx)+Wh_max)/dt,...
+                P_batt_max, G(k)/num_nodes+P_dem(k,i)]);
+        
+            % Grid Battery Power between dominant bounds
+            P_batt_grid = linspace(lb,ub,200)';
+            
+            % Calculate capacity loss
+            Q_k = ln(B) - E_a/(R*T_inf) + z.*ln(Wh_grid(idx)/V_oc); 
+            
+            % Cost-per-time-step (vectorized for all P_batt_grid)
+            g_k = a_c*Q_k + P_batt_grid + P_dem;
+        
+            % Calculate next Wh (vectorized for all P_batt_grid)
+            Wh_nxt = Wh_grid(idx)+ dt.*P_batt_grid;
+        
+        % Compute value function at nxt time step (need to interpolate)
+        V_nxt = interp1(Wh_grid,V(:,k+1),SOC_nxt,'linear');
+        
+        % Value Function (Principle of Optimality)
+        [V(idx, k), ind] = min(g_k + V_nxt);
+        
+        % Save Optimal Control
+        u_star(idx,k) = P_batt_grid(ind);
+        end
+    end
+end
+%%
 
     % Iterate over SOC
     for idx = 1:ns
         
         % Find dominant bounds
-        lb = max([Qcap*V_oc/dt*(SOC_min-SOC_grid(idx)),...
-            -P_batt_max, P_dem(k)-P_eng_max]);
-        ub = min([Qcap*V_oc/dt*(SOC_max-SOC_grid(idx)),...
-            P_batt_max, P_dem(k)]);
+        lb = max([-P_batt_max, (Wh_grid(idx)-Wh_max)/dt]);
+        ub = min([(-Wh_grid(idx)+Wh_max)/dt,...
+            P_batt_max, G(k)/num_nodes+P_dem(k)]);
         
         % Grid Battery Power between dominant bounds
         P_batt_grid = linspace(lb,ub,200)';
-        
-        % Compute engine power (vectorized for all P_batt_grid)
-        P_eng = P_dem(k)-P_batt_grid;
         
         % Cost-per-time-step (vectorized for all P_batt_grid)
         g_k = alph*dt.*P_eng./eta_eng(P_eng);
         
         % Calculate next SOC (vectorized for all P_batt_grid)
-        SOC_nxt = SOC_grid(idx)+ dt/(Qcap*V_oc).*P_batt_grid;
+        SOC_nxt = Wh_grid(idx)+ dt/(Qcap*V_oc).*P_batt_grid;
         
         % Compute value function at nxt time step (need to interpolate)
-        V_nxt = interp1(SOC_grid,V(:,k+1),SOC_nxt,'linear');
+        V_nxt = interp1(Wh_grid,V(:,k+1),SOC_nxt,'linear');
         
         % Value Function (Principle of Optimality)
         [V(idx, k), ind] = min(g_k + V_nxt);
@@ -131,7 +161,7 @@ SOC_sim(1) = SOC_0;
 for k = 1:(N-1)
     
     % Use optimal battery power, for given SOC (need to interpolate)
-    P_batt_sim(k) = interp1(SOC_grid,u_star(:,k),SOC_sim(k),'linear');
+    P_batt_sim(k) = interp1(Wh_grid,u_star(:,k),SOC_sim(k),'linear');
     
     % Compute engine power
     P_eng_sim(k) = P_dem(k)-P_batt_sim(k);
