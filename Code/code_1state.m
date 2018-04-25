@@ -24,19 +24,19 @@ L_b = 65.15E-3; %[m]
 A_s = V_b/L_b;  %[m^2]
 
 % Time step
-dt = 1*3600; %[sec]
+dt = 1; %[hr]
 
 % Tuning parameters;
 a_c = 50;  %alpha/cost ratio
 V_oc = 360; %[volts]
-Q_max = 1*3600;  %[coulombs]
+Q_max = 1*3600;  %[coulombs/hr]
 
 % Limits
 P_batt_max = 50; %[kW]
 P_dem_max = 2E3; 
 G_max = 3E3; %Taken from CE 295 HW3
 
-E_min = 0.3*Q_max*V_oc/1000;  %[kJ]
+E_min = 0.3*Q_max*V_oc/1000;  %[kWh]
 E_max = 0.9*Q_max*V_oc/1000;
 T_min = 26+273; %[K]
 T_max = 36+273; 
@@ -68,26 +68,27 @@ tic;
 
 % Boundary Condition of Value Function (Principle of Optimality)
 V(:,N+1) = 0;
-Wh_nxt = P_batt_max*N;  %[kWh], fix final power throughput
 
+% Set definitions for Wh estimation and convergence tolerance
+tol = 1E-5;
+Wh = P_batt_max*eye(N+1,1);
+Wh(N+1) = P_batt_max*N;  %[kWh], fix final power throughput
+
+while round(Wh(1),6) > tol % accurate to 10E-6, converge
+                           % when initial Wh is 0
 % Iterate backward in time
 for k = N:-1:1
     % Iterate over all states
     for idx=1:ns
             % Find dominant bounds
-            % Hi yaser and bryant
-            lb = max([-P_dem(k), -P_batt_max, (E_min-E_grid(idx))/dt]);
-            ub = min([(E_max-E_grid(idx))/dt, P_batt_max, G-P_dem(k)]);
+            lb = max([-P_dem(k), -P_batt_max, (E_grid(idx)-E_max)/dt]);
+            ub = min([(E_grid(idx)-E_min)/dt, P_batt_max, G-P_dem(k)]);
         
             % Grid Battery Power between dominant bounds
             P_batt_grid = linspace(lb,ub,200)';
             
-            % Calculate previous Wh throughput;
-            Wh = Wh_nxt-abs(P_batt_grid).*dt/3600;
-            %Wh_nxt = Wh;
-            
             % Calculate log of capacity loss
-            Q_k = log(B) - E_a/(R*T_inf) + z.*log(Wh/V_oc); 
+            Q_k = log(B) - E_a/(R*T_inf) + z.*log(Wh(k+1)/V_oc);
             
             % Cost-per-time-step (vectorized for all P_batt_grid)
             g_k = a_c*Q_k + P_batt_grid + P_dem(k);
@@ -102,9 +103,11 @@ for k = N:-1:1
             [V(idx, k), ind] = min(g_k + V_nxt);
         
             % Save Optimal Control
-            u_star(idx,k) = P_batt_grid(ind);
-            Wh_nxt = Wh_nxt - abs(P_batt_grid(ind))*dt;
+            u_star(idx,k) = P_batt_grid(ind);        
     end
+    Wh(k) = Wh(k+1) - abs(P_batt_grid(ind))*dt;
+end
+Wh(N+1) = Wh(N+1) - (Wh(1)-tol)/2; % increase/decrease start value by 1/2
 end
 solveTime = toc;
 fprintf(1,'DP Solver Time %2.2f sec \n',solveTime);
