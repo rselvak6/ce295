@@ -70,31 +70,33 @@ tic;
 V(:,N+1) = 0;
 
 % Set definitions for Wh estimation and convergence tolerance
-tol = 1E-5;
+test = [];
+tol = 1E-2;
 Wh = P_batt_max*eye(N+1,1);
 Wh(N+1) = P_batt_max*N;  %[kWh], fix final power throughput
 
-while round(Wh(1),6) > tol % accurate to 10E-6, converge
-                           % when initial Wh is 0
+while round(Wh(1),3) > tol || round(Wh(1),3) < -tol % accurate to 10E-6,
+                           % converge when initial Wh is 0
+    test = [test; Wh(1)];
 % Iterate backward in time
 for k = N:-1:1
     % Iterate over all states
     for idx=1:ns
             % Find dominant bounds
-            lb = max([-P_dem(k), -P_batt_max, (E_grid(idx)-E_max)/dt]);
-            ub = min([(E_grid(idx)-E_min)/dt, P_batt_max, G-P_dem(k)]);
+            lb = max([-P_dem(k), -P_batt_max, (-E_grid(idx)+E_min)/dt]);
+            ub = min([(-E_grid(idx)+E_max)/dt, P_batt_max, G-P_dem(k)]);
         
             % Grid Battery Power between dominant bounds
             P_batt_grid = linspace(lb,ub,200)';
             
             % Calculate log of capacity loss
-            Q_k = log(B) - E_a/(R*T_inf) + z.*log(Wh(k+1)/V_oc);
+            Q_k = log(B) + E_a/(R*T_inf) + z.*log(Wh(k+1)/V_oc);
             
             % Cost-per-time-step (vectorized for all P_batt_grid)
             g_k = a_c*Q_k + P_batt_grid + P_dem(k);
         
             % Calculate next Wh (vectorized for all P_batt_grid)
-            E_nxt = E_grid(idx)+ dt.*P_batt_grid;
+            E_nxt = E_grid(idx) + dt.*P_batt_grid;
         
             % Compute value function at nxt time step (need to interpolate)
             V_nxt = interp1(E_grid,V(:,k+1),E_nxt,'linear');
@@ -115,31 +117,35 @@ fprintf(1,'DP Solver Time %2.2f sec \n',solveTime);
 %% Simulate Results
 
 % Preallocate
-Wh_sim = zeros(N,1);
+E_sim = zeros(N,1);
 P_batt_sim = zeros(N,1);
 Q_sim = zeros(N,1);
 Q_cap = zeros(N,1);
 
 % Initialize
-Wh_0 = 0.75*Wh_max;    
-Wh_sim(1) = Wh_0;
+E_o = E_max;    
+E_sim(1) = E_o;
+Wh_sim = 0;
 
 % Simulate Grid Dynamics
-for k = 1:(N-1)
+for k = 1:(N)
     
     % Use optimal battery power, for given Wh (need to interpolate)
-    P_batt_sim(k) = interp1(E_grid,u_star(:,k),Wh_sim(k),'linear');
+    P_batt_sim(k) = interp1(E_grid,u_star(:,k),E_sim(k),'linear');
     
     % Capacity loss
-    Q_sim(k) = log(B) - E_a/(R*T_inf) + z*log(Wh_sim(k)/V_oc);
+    Q_sim(k) = log(B) + E_a/(R*T_inf) + z*log(Wh_sim/V_oc);
     
     % Capacity
     Q_cap(k) = Q_max*(1-Q_sim(k)/100);
     
     % Time-step battery dynamics
-    Wh_sim(k+1) = Wh_sim(k) + dt*abs(P_batt_sim(k));
+    Wh_sim = Wh_sim + abs(P_batt_sim(k))*dt;
+    
+    % Energy state evolution
+    E_sim(k+1) = E_sim(k) + P_batt_sim(k)*dt;
     
 end
 
-fprintf(1,'Total throughput %2.2f kWh\n',Wh_sim(N));
+fprintf(1,'Total throughput %2.2f kWh\n',Wh_sim);
 fprintf(1,'Total Capacity Fade %2.2f C \n',sum(exp(Q_sim/100))*Q_max);

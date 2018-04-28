@@ -1,0 +1,91 @@
+\NeedsTeXFormat{LaTeX2e}
+\LoadClass{article}
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{color, colortbl}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{breqn}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\tab}[1][0.5cm]{\hspace*{#1}}
+
+\begin{document}
+	
+\section{Formulation: Part I}
+Optimization equation
+\begin{equation}\label{eq1}
+	\text{min}\sum_{k\in N}\sum_{i\in I}\begin{pmatrix}\color{red}\alpha\color{black} \ln{Q_i(k)} + c(k)P_{0i}(k) \end{pmatrix}
+\end{equation}
+\begin{equation}\label{eq2}
+	\ln{Q_i(k)} = \ln(B) - \frac{E_A}{RT_i(k)} + z\ln{\frac{W_{h,i}(k)}{V_i(k)}} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}\label{eq3}
+	W_{h,i}(k+1) = W_{h,i}(k) + |p_{b,i}(k)|\Delta t \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}\label{eq4}
+	E_i(k+1) = E_i(k) - p_{b,i}(k)\Delta t \quad \forall k\in 1..N, \forall i\in 1..I
+\end{equation}
+\begin{equation}\label{eq5}
+	P_{0i}(k) = d(k) - p_{b,i}(k) \quad \forall k\in 1..N, \forall i\in 1..I
+\end{equation}
+\begin{equation}\label{eq6}
+	\sum_{i\in I}P_{0i}(k) \leq G(k) \quad \forall k\in 1..N, \forall i\in 1..I
+\end{equation}
+\begin{equation}\label{eq7}
+	E_{\text{min}} \leq \color{blue}E_i(k)\color{black} \leq E_{\text{max}} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}
+	0 \leq \color{blue}W_{h,i}(k)\color{black} \leq W_{h,\text{max}} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}
+	-P_{\text{batt, max}} \leq \color{magenta}p_{b,i}(k)\color{black} \leq P_{\text{batt, max}} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+
+\section{Temperature dynamics}
+\begin{equation}\label{eq8}
+	\rho CV_B\dot{T_i}(k) = hA_s\begin{pmatrix}T_i(k) - T_{\infty}\end{pmatrix} + R_B\begin{pmatrix}\frac{p_{b,i}(k)}{V_i(k)}\end{pmatrix}^2 \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}\label{eq9}
+	T_i(k)+\dot{T_i}(k)\Delta t = T_i(k+1) \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}\label{eq10}
+	T_{\text{min}} \leq \color{blue}T_i(k)\color{black} \leq T_{\text{max}} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}\label{eq12}
+	V_i(k) = V_{oc,i}(k) -I_i(k)R_B \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}\label{eq15}
+	Q_{\text{cap, i}}(k) = Q_{\text{max}}\begin{pmatrix}1-Q_i(k)\end{pmatrix} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+\begin{equation}
+	0 \leq \color{magenta}I_{i}(k)\color{black} \leq I_{\text{max}} \quad \forall k\in 1..N, i\in 1..I
+\end{equation}
+
+\section{DP Formulation}
+Let $V(k)$ represent the cumulative capacity fade and power generation from time step \textit{k} to total time \textit{N}. We define control variables $I_i(k)$ as $u_k \; \forall i$ and state variables $T_i(k)$ as $x_k \; \forall i$:
+\begin{equation}\label{eq16}
+	V_k(x_k) = \underset{u_k,x_k}{\text{min}}\begin{Bmatrix}\sum_{i\in I}\begin{pmatrix}\alpha \cdot Q_i(k) + c(k)\cdot\begin{pmatrix}d_i(k)-u_i(k)\end{pmatrix}\end{pmatrix} + V(k+1) \end{Bmatrix}\quad \forall k\in 1..N
+\end{equation}
+We finally establish the boundary condition: \[V(N+1) = 0\]
+
+\end{document}
