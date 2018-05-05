@@ -28,16 +28,17 @@ dt = 1; %[hr]
 
 % Tuning parameters;
 a_c = 50;  %alpha/cost ratio
-V_oc = 360; %[volts]
+V_oc = 3.6; %[volts]
 Q_max = 1*3600;  %[coulombs/hr]
+Ah = 2.2; %amp-hour throughput
 
 % Limits
 P_batt_max = 50; %[kW]
 P_dem_max = 2E3; 
 G_max = 3E3; %Taken from CE 295 HW3
 
-E_min = 0.3*Q_max*V_oc/1000;  %[kWh]
-E_max = 0.9*Q_max*V_oc/1000;
+E_min = 0.3*Ah*V_oc/1000;  %[kWh]
+E_max = 0.9*Ah*V_oc/1000;
 T_min = 26+273; %[K]
 T_max = 36+273; 
 
@@ -50,18 +51,20 @@ t = linspace(0,1,N);    %[hr]
 % Demand data subroutine - derived from CE 295 HW4
 P_dem = demand_data(P_dem_max);
 G = G_max;
+Wh_max = N*E_max;
 
 %% Grid State and Preallocate
 E_grid = (E_min:5:E_max)';
+Wh_grid = (0:5:Wh_max)';
 
 % Grid size
-ns = length(E_grid);  % No. of states
+ns = [length(E_grid), length(Wh_grid)];  % No. of states
 
 % Preallocate Value Function (rows index state, columns index time)
-V = inf*ones(ns,N+1);
+V = inf*ones(ns(1), ns(2), N+1);
 
 % Preallocate Control (rows index state, columns index time)
-u_star = zeros(ns,N);
+u_star = zeros(ns(1), ns(2), N);
 
 %% Solve DP
 tic;
@@ -69,15 +72,6 @@ tic;
 % Boundary Condition of Value Function (Principle of Optimality)
 V(:,N+1) = 0;
 
-% Set definitions for Wh estimation and convergence tolerance
-test = [];
-tol = 1E-2;
-Wh = P_batt_max*eye(N+1,1);
-Wh(N+1) = P_batt_max*N;  %[kWh], fix final power throughput
-
-while round(Wh(1),3) > tol || round(Wh(1),3) < -tol % accurate to 10E-6,
-                           % converge when initial Wh is 0
-    test = [test; Wh(1)];
 % Iterate backward in time
 for k = N:-1:1
     % Iterate over all states
@@ -107,10 +101,8 @@ for k = N:-1:1
             % Save Optimal Control
             u_star(idx,k) = P_batt_grid(ind);        
     end
-    Wh(k) = Wh(k+1) - abs(P_batt_grid(ind))*dt;
 end
-Wh(N+1) = Wh(N+1) - (Wh(1)-tol)/2; % increase/decrease start value by 1/2
-end
+
 solveTime = toc;
 fprintf(1,'DP Solver Time %2.2f sec \n',solveTime);
 

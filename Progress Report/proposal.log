@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.30)  19 MAR 2018 23:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.30)  30 APR 2018 15:29
 entering extended mode
 **./proposal.tex
 (proposal.tex
@@ -17,7 +17,9 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\psnfss\o
+t1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
@@ -116,24 +118,30 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsmath\
+amsmath.sty"
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsmath\
+amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsmath\
+amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks15
 \ex@=\dimen126
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsmath\
+amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen127
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsmath\
+amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count94
@@ -174,10 +182,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsfonts
+\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsfonts
+\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -187,10 +197,12 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithmic.sty"
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\base\ift
+hen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\graphics
+\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
 )
@@ -201,27 +213,33 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \ALC@tlm=\skip47
 \algorithmicindent=\skip48
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\graphics
+\graphicx.sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\graphics
+\graphics.sty"
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\graphics
+\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\graphics
+-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\graphics
+-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\base\tex
+tcomp.sty"
 Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -236,7 +254,8 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\base\ts1
+enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -324,7 +343,9 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\base\ts1
+cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 11.
@@ -343,31 +364,41 @@ LaTeX Font Info:    ... okay on input line 11.
 \MPnumerator=\count114
 \makeMPintoPDFobject=\count115
 \everyMPtoPDFconversion=\toks22
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+)
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\oberdiek
+\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\infwarerr.sty"
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\oberdiek
+\grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\kvdefinekeys.sty"
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\oberdiek
+\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\kvsetkeys.sty"
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\etexcmds.sty"
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\ifluatex.sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -376,11 +407,13 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\pdftexcmds.sty"
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/generic\oberdi
+ek\ifpdf.sty"
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -398,25 +431,30 @@ G,.JBIG2,.JB2,.eps]
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 21.
 LaTeX Font Info:    Try loading font information for U+msa on input line 21.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsfonts
+\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\amsfonts
+\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 ** WARNING: \and is valid only when in conference or peerreviewca
 modes (line 21).
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 21.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\psnfss\o
+t1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <11> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 21.
 LaTeX Font Info:    Try loading font information for OMS+pcr on input line 21.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omspcr.fd"
+("C:\Users\Raja Selvakumar\AppData\Local\Programs\MiKTeX 2.9\tex/latex\psnfss\o
+mspcr.fd"
 File: omspcr.fd 
 )
 
@@ -431,15 +469,13 @@ LaTeX Font Info:    Font shape `OMS/pcr/bx/n' in size <11> not available
 <fig1.png, id=1, 460.72125pt x 257.763pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 36. on input line 36.
-Package pdftex.def Info: Requested size: 257.9951pt x 144.34236pt on input line
- 36.
+Package pdftex.def Info: fig1.png  used on input line 36.
+(pdftex.def)             Requested size: 257.9951pt x 144.34236pt.
 <fig3.png, id=3, 469.755pt x 150.7815pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 56. on input line 56.
-Package pdftex.def Info: Requested size: 258.00049pt x 82.81273pt on input line
- 56.
+Package pdftex.def Info: fig3.png  used on input line 56.
+(pdftex.def)             Requested size: 258.00049pt x 82.81273pt.
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ° in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
@@ -451,22 +487,19 @@ Missing character: There is no ° in font ptmr7t!
 <fig4.png, id=18, 306.54526pt x 254.75175pt>
 File: fig4.png Graphic file (type png)
 <use fig4.png>
-Package pdftex.def Info: fig4.png  used on input line 64. on input line 64.
-Package pdftex.def Info: Requested size: 258.01077pt x 214.41759pt on input lin
-e 64.
+Package pdftex.def Info: fig4.png  used on input line 64.
+(pdftex.def)             Requested size: 258.01077pt x 214.41759pt.
 <fig5.png, id=19, 247.689pt x 197.4285pt>
 File: fig5.png Graphic file (type png)
 <use fig5.png>
-Package pdftex.def Info: fig5.png  used on input line 72. on input line 72.
-Package pdftex.def Info: Requested size: 154.80145pt x 123.38948pt on input lin
-e 72.
+Package pdftex.def Info: fig5.png  used on input line 72.
+(pdftex.def)             Requested size: 154.80145pt x 123.38948pt.
  [2 <./fig3.png> <./fig4.png> <./fig5.png>]
 <fig6.png, id=30, 119.9682pt x 136.8312pt>
 File: fig6.png Graphic file (type png)
 <use fig6.png>
-Package pdftex.def Info: fig6.png  used on input line 155. on input line 155.
-Package pdftex.def Info: Requested size: 119.9679pt x 136.83086pt on input line
- 155.
+Package pdftex.def Info: fig6.png  used on input line 155.
+(pdftex.def)             Requested size: 119.9679pt x 136.83086pt.
  [3 <./fig6.png>]
 (proposal.aux)
 
@@ -474,28 +507,35 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3994 strings out of 493312
- 59208 string characters out of 3138867
- 124812 words of memory out of 3000000
- 7470 multiletter control sequences out of 15000+200000
+ 3997 strings out of 493312
+ 61607 string characters out of 3138867
+ 125197 words of memory out of 3000000
+ 7472 multiletter control sequences out of 15000+200000
  50507 words of font info for 106 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,26p,1008b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb
-8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/urw/times/utmri8a.pfb>
+{C:/Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/b
+ase/8r.enc}<C:/Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb><C:/Users/Raja Selvakumar/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Raja Selvaku
+mar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+<C:/Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi7.pfb><C:/Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Raja Selvakumar/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Raj
+a Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr6.pfb><C:/Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr7.pfb><C:/Users/Raja Selvakumar/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Raja Selvakumar/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
+ers/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmsy7.pfb><C:/Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/urw/courier/ucrb8a.pfb><C:/Users/Raja Selvakumar/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Raja Selvakumar/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Raja Sel
+vakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/
+Users/Raja Selvakumar/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/u
+tmri8a.pfb>
 Output written on proposal.pdf (3 pages, 697957 bytes).
 PDF statistics:
  88 PDF objects out of 1000 (max. 8388607)
